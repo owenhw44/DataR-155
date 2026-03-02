@@ -1,0 +1,31 @@
+---
+title: "Chapter 9 Practice"
+author: Owen Webb
+output: html_notebook
+---
+
+# Load data
+
+```{r}
+library(readr)
+
+dplace_df <- read_csv("C:/Users/Owen/Documents/BSU Documents/DATAR 155/data/Values_Transport_dplace.csv")
+```
+
+Successfully loaded in the csv after 3 tries. When I tried the first time, I didn't type out the full pathway, only "data/Values_Transport_dplace.csv", which returned the following error:
+
+Error: 'data/Values_Transport_dplace.csv' does not exist in current working directory ('C:/Users/Owen/Documents/BSU Documents/DATAR 155/DataR-155').
+
+
+Writing out the full file pathway worked. 
+
+
+
+
+
+
+
+
+
+
+
