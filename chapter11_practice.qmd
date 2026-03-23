@@ -73,7 +73,7 @@ nrow(Fast_n_Furious)
 
 To filter the cars, I used the following conditions: am == 1 (cars with a manual transmission) cyl == 8 (cars with 8 cylinder engines), qsec \< 15 (cars that have a 1/4 mile time less than 15 seconds). Only 2 cars meet all 3 conditions.
 
-## Task 5
+## Task 6
 
 Goal: Create a dataset with cars that have a displacement (disp) either less than 160 or over 250, and only include the first 3 columns in the dataset.
 
@@ -89,6 +89,8 @@ filtered_cars <- mtcars %>%
 all(filtered_cars$disp > 250 | filtered_cars$disp < 160)
 ```
 
-## Task 6
+all() tests if all the rows in filtered_cars meets the listed conditions.
 
 ## Task 7
+
+Using the dplyr verbs filter() and select() for subsetting data is much more intuitive to me compared to using brackets. It is also easier to read and understand. I think the fact that filter() is used for subsetting rows and select() is used for columns makes it easier compared to bracketing, even though it isn't quite as concise.
