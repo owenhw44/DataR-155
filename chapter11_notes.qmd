@@ -1,0 +1,29 @@
+---
+title: "Chapter 11 Notes"
+author: "Owen Webb"
+format: html
+editor: visual
+---
+
+## Installing required packages
+
+```{r}
+library(dplyr)
+library(dslabs)
+```
+
+```{r}
+mtcars %>% head()
+```
+
+```{r}
+just3 <- select(mtcars, mpg, cyl, hp)
+```
+
+```{r}
+powerfulauto <- mtcars %>% 
+  filter(am == 0, hp > 150) %>% 
+  select(hp, mpg)
+
+View(powerfulauto)
+```
