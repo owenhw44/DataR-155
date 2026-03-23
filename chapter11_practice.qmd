@@ -1,0 +1,94 @@
+---
+title: "Chapter 11 Practice"
+author: "Owen Webb"
+date: today
+format: html
+editor: visual
+---
+
+## Task 0
+
+Loading required packages.
+
+```{r}
+#| warning: false
+
+library(dslabs)
+library(dplyr)
+
+```
+
+## Task 1
+
+Goal: Create a dataframe from the temp_carbon dataframe with only year and carbon_emissions using select()
+
+```{r}
+C_overload <- select(temp_carbon, year, carbon_emissions)
+
+head(C_overload)
+```
+
+select() allows me to pick specific columns to include in my dataframe. head() allows me to check if the selection was successful, as it will show me all the columns in the new dataframe.
+
+## Task 2
+
+Goal: Extract only the names of stars (star column) by piping the stars dataframe into the select() function.
+
+```{r}
+star_names <- stars %>% select(star)
+head(star_names)
+```
+
+This returned a one-dimensional data frame.
+
+## Task 3
+
+Goal: Remove Florida murders from the murders dataset.
+
+```{r}
+unique(murders$state)
+```
+
+```{r}
+No_Florida <- murders %>% filter(state != "Florida")
+unique(No_Florida$state)
+```
+
+Pre-checking the unique states in the original dataset allows you to verify that Florida is in the dataset to begin with, and it allows you to compare it with the unique states in the No_Florida dataset to ensure that only Florida was removed. If the filtering was successful, there should be one less value in the unique(No_Florida\$state) output, because the filtering step removes all rows where the state column is Florida.
+
+## Task 4
+
+Goal: Create a dataset from mtcars that includes all cars that are manual, have 8 cylinders, and have a qsec \< 15.
+
+```{r}
+?mtcars
+summary(mtcars$qsec)
+```
+
+```{r}
+Fast_n_Furious <- mtcars %>% filter(am == 1, cyl == 8, qsec < 15)
+head(Fast_n_Furious)
+nrow(Fast_n_Furious)
+```
+
+To filter the cars, I used the following conditions: am == 1 (cars with a manual transmission) cyl == 8 (cars with 8 cylinder engines), qsec \< 15 (cars that have a 1/4 mile time less than 15 seconds). Only 2 cars meet all 3 conditions.
+
+## Task 5
+
+Goal: Create a dataset with cars that have a displacement (disp) either less than 160 or over 250, and only include the first 3 columns in the dataset.
+
+```{r}
+range(mtcars$disp)
+```
+
+```{r}
+filtered_cars <- mtcars %>% 
+  filter(disp < 160 | disp > 250) %>% 
+  select(1:3)
+
+all(filtered_cars$disp > 250 | filtered_cars$disp < 160)
+```
+
+## Task 6
+
+## Task 7
