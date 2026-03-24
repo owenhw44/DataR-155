@@ -1,0 +1,105 @@
+---
+title: "Data Understanding Notebook"
+author: "Owen Webb"
+date: today
+toc: true
+toc-depth: 2
+number-sections: true
+format: html
+editor: visual
+---
+
+# Purpose of this notebook
+
+**How do penguin body measurements differ by species, sex, and
+island in the Palmer Archipelago?** This document is an exploratory data analysis notebook used to understand the dataset and prepare for later analysis. Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER.
+
+```         
+[Dataset References](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html)
+```
+
+# Load Packages and Data
+
+The packages "dplyr" and "palmerpenguins" are required for this analysis. The dplyr package is already installed, so I only need to install the palmerpenguins package.
+
+```{r}
+install.packages("palmerpenguins")
+
+library(dplyr)
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+```
+
+```{r}
+View(penguins)
+?penguins
+```
+
+# Variables and Data Types
+
+In the "penguins" dataset, there are 8 columns. The columns "species", "island", and "sex" contain categorical data. I believe the column "year" also could be counted as categorical as it's not being used as a measurement of time, and it's just listing the year of the study. The columns "bill_length_mm", "bill_depth_mm", "flipper_length_mm", and "body_mass_g" all contain quantitative, continuous data. It doesn't appear that "flipper_length_mm" and "body_mass_g" contain any non-integer values, however, because they are measurements in millimeters and grams, they are not discrete data. This matters because, in order for descriptive statistics to be meaningfully applied, a data analyst must be aware of the type of data being analyzed and what types of analysis would make sense for it.
+
+```{r}
+glimpse(penguins)
+```
+
+```{r}
+colnames(penguins)
+```
+
+```         
+ The `penguins` dataset contains `{r} nrow(penguins)` rows and `{r} ncol(penguins)` columns.
+```
+
+```         
+The `species` column is stored as `{r} class(penguins$species)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+```
+
+```         
+The `island` column is stored as `{r} class(penguins$island)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+```
+
+```         
+The `bill_length_mm` column is stored as `{r} class(penguins$bill_length_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+```
+
+```         
+The `bill_depth_mm` column is stored as `{r} class(penguins$bill_depth_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+```
+
+```         
+The `flipper_length_mm` column is stored as `{r} class(penguins$flipper_length_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+```
+
+```         
+The `body_mass_g` column is stored as `{r} class(penguins$body_mass_g)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+```
+
+```         
+The `sex` column is stored as `{r} class(penguins$sex)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+```
+
+```         
+The `year` column is stored as `{r} class(penguins$year)}` in R. This is numerical data in R because it is stored as numbers. However, this column should be interpreted carefully because it represents year rather than a body measurement. The values are discrete, and their order matters because years follow a time sequence.
+```
+
+# Count-Based Summaries
+
+1.  length() could be used to count how many values there are in the 'year' column.
+2.  The columns 'sex' and 'species' could be summarized using count().
+3.  Identifying the mode of the column 'island' could be meaningful.
+
+```{r}
+penguins %>% 
+  count(island)
+```
+
+```         
+The most common value in the `island` column is Biscoe. I chose `island` for `count()` because it is a categorical variable, so it makes sense to count the number of observations per island. This mode tells me that there were more penguins sampled from Biscoe island than Dream or Torgersen islands.
+```
+
+# Measures of Center
+
+# Measures of Spread
+
+# Early Takeaways
