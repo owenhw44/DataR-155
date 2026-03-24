@@ -100,6 +100,79 @@ The most common value in the `island` column is Biscoe. I chose `island` for `co
 
 # Measures of Center
 
+## Median
+
+$$
+\text{median} = x_{(\frac{n+1}{2})}
+$$
+
+$$
+\text{median} = \frac{x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}}{2}
+$$
+
+```{r}
+print(mtcars$mpg)
+```
+
+```{r}
+sorted_data <- sort(mtcars$mpg)  
+
+sorted_data
+```
+
+```         
+The `mpg` column in the `mtcars` dataset sorted in ascending order is: `{r} sorted_data`.
+```
+
+```{r}
+length(sorted_data)
+
+```
+
+```         
+There are `{r} length(sorted_data)` values.
+```
+
+```{r}
+median_value <- (sorted_data[16] + sorted_data[17]) / 2
+median_value
+```
+
+```         
+The median of the `mpg` column in the `mtcars` dataset is `{r} median(mtcars$mpg)`.
+```
+
+## Mean
+
+```{r}
+n <- length(mtcars$mpg)
+```
+
+```{r}
+sum_sample <- sum(mtcars$mpg)
+sum_sample
+```
+
+```         
+The sum of the values in the `mpg` column of the `mtcars` dataset is `{r} sum_sample`.
+```
+
+```{r}
+x_bar <- sum_sample / n 
+```
+
+```         
+The mean of the values in the `mpg` column of the `mtcars` dataset is `{r} mean(mtcars$mpg)`.
+```
+
 # Measures of Spread
+
+## Standard Deviation
+
+```{r}
+variance <- sum((mtcars$mpg - x_bar)^2) / (n - 1)
+
+variance
+```
 
 # Early Takeaways
