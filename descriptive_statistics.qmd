@@ -169,10 +169,72 @@ The mean of the values in the `mpg` column of the `mtcars` dataset is `{r} mean(
 
 ## Standard Deviation
 
+$$
+ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{(n-1)} 
+$$
+
 ```{r}
 variance <- sum((mtcars$mpg - x_bar)^2) / (n - 1)
 
 variance
+```
+
+```         
+The variance of the values in the `mpg` column of the `mtcars` dataset is `{r} round(var(mtcars$mpg), 2)`
+```
+
+$$
+s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
+$$
+
+```{r}
+std_dev <- sqrt(sum((mtcars$mpg - x_bar)^2) / (n - 1))
+std_dev
+```
+
+```{r}
+std_dev <- sd(mtcars$mpg)
+std_dev
+```
+
+```         
+ The standard deviation of the values in the `mpg` column of the `mtcars` dataset is `{r} round(sd(mtcars$mpg), 2)`
+```
+
+## Range
+
+$$
+ \text{Range} = x_{(n)} - x_{(1)} 
+$$
+
+```{r}
+mpg_range <- range(mtcars$mpg)
+mpg_range
+```
+
+## Interquartile range
+
+```{r}
+iqr_value <- IQR(mtcars$mpg)
+iqr_value
+```
+
+```         
+The interquartile range of the values in the `mpg` column is `{r} IQR(mtcars$mpg)`
+```
+
+## Five Number Summary
+
+```{r}
+?summary
+```
+
+```{r}
+summary(mtcars)
+```
+
+```{r}
+summary(mtcars$mpg)
 ```
 
 # Early Takeaways
