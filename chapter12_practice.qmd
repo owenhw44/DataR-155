@@ -23,3 +23,30 @@ library(dslabs)
 ## Task 1: Concept Check
 
 Vectorized conditional functions like ifelse() and case_when() will return a new vector with a result for every condition.
+
+## Task 2: Simple ifelse()
+
+🎯 Goal: I am trying to create a vector that accompanies the heights in the dataset "heights" that labels them as either "Tall" or "Not Tall".
+
+```{r}
+#Precheck
+?dslabs::heights
+heights <- dslabs::heights
+names(heights)
+```
+
+🗣 The "height" column (column 2) contains the height values in this dataset. The "Tall" label should be assigned to the yes argument, since the logical test is testing for values higher than 68 inches.
+
+```{r}
+# ⚡  Code
+height_label <- ifelse(test = heights$height > 68, yes = "Tall", no = "Not Tall")
+```
+
+```{r}
+# ✅  Check
+table(height_label)
+```
+
+🗣 The ifelse() function seemed to have worked as expected. Both the labels "Tall" and "Not Tall" show up in the table output. There are 508 Not tall and 542 Tall heights.
+
+## Task 3: Recoding with mutate() and case_when()
