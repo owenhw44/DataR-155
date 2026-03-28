@@ -11,8 +11,7 @@ editor: visual
 
 # Purpose of this notebook
 
-**How do penguin body measurements differ by species, sex, and
-island in the Palmer Archipelago?** This document is an exploratory data analysis notebook used to understand the dataset and prepare for later analysis. Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER.
+**How do penguin body measurements differ by species, sex, and island in the Palmer Archipelago?** This document is an exploratory data analysis notebook used to understand the dataset and prepare for later analysis. Data for three penguin species observed in the Palmer Archipelago, Antarctica, collected by Dr. Kristen Gorman with Palmer Station LTER.
 
 ```         
 [Dataset References](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html)
