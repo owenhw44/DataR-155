@@ -19,3 +19,7 @@ I need packages dplyr and dslabs for this practice space.
 library(dplyr)
 library(dslabs)
 ```
+
+## Task 1: Concept Check
+
+Vectorized conditional functions like ifelse() and case_when() will return a new vector with a result for every condition.
