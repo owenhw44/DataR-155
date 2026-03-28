@@ -1,0 +1,21 @@
+---
+title: "Chapter 12 Practice"
+author: "Owen Webb"
+date: today
+toc: true
+toc-depth: 2
+number-sections: true
+format: html
+editor: visual
+---
+
+## Loading Packages
+
+I need packages dplyr and dslabs for this practice space.
+
+```{r}
+#| warning: false
+
+library(dplyr)
+library(dslabs)
+```
