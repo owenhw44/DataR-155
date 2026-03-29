@@ -50,3 +50,83 @@ table(height_label)
 🗣 The ifelse() function seemed to have worked as expected. Both the labels "Tall" and "Not Tall" show up in the table output. There are 508 Not tall and 542 Tall heights.
 
 ## Task 3: Recoding with mutate() and case_when()
+
+🎯 Goal: Use case_when() to demonstrate the utility of the function when labeling columns with more than two categories.
+
+```{r}
+# ⚡  Code
+mpg_recode <- mtcars %>% 
+  mutate(mpg_class = case_when(
+    mpg > 25 ~ "High MPG",
+    mpg < 15 ~ "Low MPG",
+    TRUE     ~ "Medium MPG"
+  ))
+```
+
+```{r}
+# ✅  Checks
+table(mpg_recode$mpg_class)
+```
+
+🗣 The code seemed to have worked. I see the three classes I was expecting: High MPG, Low MPG, and Medium MPG. There are 6 High MPGs, 5 Low MPGs, and 21 Medium MPGs.
+
+## Task 4: Recode - Name Focus
+
+```{r}
+# precheck
+?dslabs::stars
+stars <- dslabs::stars
+
+View(stars)
+colnames(stars)
+summary(stars$temp)
+```
+
+🗣 The column "temp" contains the temperature values in the data frame. The name of the new column will go left of the = sign in the mutate function.
+
+🎯 Goal: Produce a new data frame (stars_recode) with a new column called temp_group, categorizing the star temperatures as either "Cool" (temp \< 4000), "Warm" (4000 \< temp \< 7500), and "Hot" (temp \> 7500) using mutate() and case_when().
+
+```{r}
+# ⚡  Code
+stars_recode <- stars %>% 
+  mutate(
+    temp_group = case_when(
+    temp < 4000 ~ "Cool",
+    temp <= 7500 ~ "Warm",
+    TRUE        ~ "Hot"
+   )
+  )
+```
+
+```{r}
+# ✅ Checks
+table(stars_recode$temp_group)
+```
+
+🗣 The code worked. There are 3 categories: "Cool" with 35 obs, "Hot" with 38 obs, and "Warm" with 23 obs. Its interesting to me that the "Cool" are labeled that way even though they are also less than or equal to 7500.
+
+## Task 5: Unit Conversion with mutate()
+
+```{r}
+#precheck
+heights <- dslabs::heights
+head(heights)
+
+```
+
+🎯 Goal: Use mutate to create a new column, converting inches into cm.
+
+```{r}
+#⚡ Code
+international_friendly_heights <- heights %>% 
+  mutate(height_cm = height * 2.54)
+
+```
+
+```{r}
+#✅ Checks
+head(international_friendly_heights
+     )
+```
+
+🗣 It appears that the code was successful. The height values in inches were successfully all converted to centimeters. I think this is a very interesting application of mutate() and I can see lots of possible uses in this way.
