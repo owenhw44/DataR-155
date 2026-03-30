@@ -101,139 +101,28 @@ The most common value in the `island` column is Biscoe. I chose `island` for `co
 
 ## Median
 
-$$
-\text{median} = x_{(\frac{n+1}{2})}
-$$
-
-$$
-\text{median} = \frac{x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}}{2}
-$$
+Goal: Identify a suitable variable from the "penguins" dataset for calculating the median.
 
 ```{r}
-print(mtcars$mpg)
-```
-
-```{r}
-sorted_data <- sort(mtcars$mpg)  
-
-sorted_data
+median(penguins$bill_length_mm, na.rm = TRUE)
 ```
 
 ```         
-The `mpg` column in the `mtcars` dataset sorted in ascending order is: `{r} sorted_data`.
+The median of the "bill_length_mm" column in the `penguins` dataset is `{r} median(penguins$bill_length_mm, na.rm = TRUE)`.
 ```
 
-```{r}
-length(sorted_data)
-
-```
-
-```         
-There are `{r} length(sorted_data)` values.
-```
-
-```{r}
-median_value <- (sorted_data[16] + sorted_data[17]) / 2
-median_value
-```
-
-```         
-The median of the `mpg` column in the `mtcars` dataset is `{r} median(mtcars$mpg)`.
-```
+The bill_length_mm variable is a quantitative, continuous variable, so it makes sense to determine the median. The median of these measurements is 44.45 mm, which means that it is the middle value of the variable. The median is a useful measure of center, as it is not sensitive to outliers, and it can provide a more accurate estimate of centrality when there are outliers in a dataset.
 
 ## Mean
-
-```{r}
-n <- length(mtcars$mpg)
-```
-
-```{r}
-sum_sample <- sum(mtcars$mpg)
-sum_sample
-```
-
-```         
-The sum of the values in the `mpg` column of the `mtcars` dataset is `{r} sum_sample`.
-```
-
-```{r}
-x_bar <- sum_sample / n 
-```
-
-```         
-The mean of the values in the `mpg` column of the `mtcars` dataset is `{r} mean(mtcars$mpg)`.
-```
 
 # Measures of Spread
 
 ## Standard Deviation
 
-$$
- s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{(n-1)} 
-$$
-
-```{r}
-variance <- sum((mtcars$mpg - x_bar)^2) / (n - 1)
-
-variance
-```
-
-```         
-The variance of the values in the `mpg` column of the `mtcars` dataset is `{r} round(var(mtcars$mpg), 2)`
-```
-
-$$
-s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
-$$
-
-```{r}
-std_dev <- sqrt(sum((mtcars$mpg - x_bar)^2) / (n - 1))
-std_dev
-```
-
-```{r}
-std_dev <- sd(mtcars$mpg)
-std_dev
-```
-
-```         
- The standard deviation of the values in the `mpg` column of the `mtcars` dataset is `{r} round(sd(mtcars$mpg), 2)`
-```
-
-## Range
-
-$$
- \text{Range} = x_{(n)} - x_{(1)} 
-$$
-
-```{r}
-mpg_range <- range(mtcars$mpg)
-mpg_range
-```
+## Range 
 
 ## Interquartile range
 
-```{r}
-iqr_value <- IQR(mtcars$mpg)
-iqr_value
-```
-
-```         
-The interquartile range of the values in the `mpg` column is `{r} IQR(mtcars$mpg)`
-```
-
 ## Five Number Summary
-
-```{r}
-?summary
-```
-
-```{r}
-summary(mtcars)
-```
-
-```{r}
-summary(mtcars$mpg)
-```
 
 # Early Takeaways
