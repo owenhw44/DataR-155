@@ -52,35 +52,35 @@ colnames(penguins)
 ```
 
 ```         
-The `species` column is stored as `{r} class(penguins$species)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+The `species` column is stored as `{r} class(penguins$species)` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
 ```
 
 ```         
-The `island` column is stored as `{r} class(penguins$island)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+The `island` column is stored as `{r} class(penguins$island)` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
 ```
 
 ```         
-The `bill_length_mm` column is stored as `{r} class(penguins$bill_length_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+The `bill_length_mm` column is stored as `{r} class(penguins$bill_length_mm)` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
 ```
 
 ```         
-The `bill_depth_mm` column is stored as `{r} class(penguins$bill_depth_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+The `bill_depth_mm` column is stored as `{r} class(penguins$bill_depth_mm)` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
 ```
 
 ```         
-The `flipper_length_mm` column is stored as `{r} class(penguins$flipper_length_mm)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+The `flipper_length_mm` column is stored as `{r} class(penguins$flipper_length_mm)` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
 ```
 
 ```         
-The `body_mass_g` column is stored as `{r} class(penguins$body_mass_g)}` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
+The `body_mass_g` column is stored as `{r} class(penguins$body_mass_g)` in R. This is numerical data because it records a measured quantity. It is continuous data because measurements can vary across a range of values. The order of the values does not matter unless we sort them for analysis.
 ```
 
 ```         
-The `sex` column is stored as `{r} class(penguins$sex)}` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
+The `sex` column is stored as `{r} class(penguins$sex)` in R. This is categorical data because it places penguins into groups or categories. The order of these categories does not matter, so this is best understood as an unordered sample.
 ```
 
 ```         
-The `year` column is stored as `{r} class(penguins$year)}` in R. This is numerical data in R because it is stored as numbers. However, this column should be interpreted carefully because it represents year rather than a body measurement. The values are discrete, and their order matters because years follow a time sequence.
+The `year` column is stored as `{r} class(penguins$year)` in R. This is numerical data in R because it is stored as numbers. However, this column should be interpreted carefully because it represents year rather than a body measurement. The values are discrete, and their order matters because years follow a time sequence.
 ```
 
 # Count-Based Summaries
