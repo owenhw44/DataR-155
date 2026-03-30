@@ -1,5 +1,6 @@
 ---
 title: "Data Understanding Notebook"
+subtitle: "Descriptive Statistics"
 author: "Owen Webb"
 date: today
 toc: true
@@ -22,7 +23,7 @@ editor: visual
 The packages "dplyr" and "palmerpenguins" are required for this analysis. The dplyr package is already installed, so I only need to install the palmerpenguins package.
 
 ```{r}
-install.packages("palmerpenguins")
+#install.packages("palmerpenguins")
 
 library(dplyr)
 library(palmerpenguins)
@@ -119,10 +120,61 @@ The bill_length_mm variable is a quantitative, continuous variable, so it makes 
 
 ## Standard Deviation
 
-## Range 
+$$
+s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
+$$
 
-## Interquartile range
+Use the `sd()` function to calculate the standard deviation for \*\*`flipper_length_mm`\*\*.
 
-## Five Number Summary
+```{r}
+sd(penguins$flipper_length_mm, na.rm = TRUE)
+```
+
+```         
+The standard deviation of the values in the `flipper_length_mm` column of the `penguins` dataset is `{r} round(sd(penguins$flipper_length_mm), 2)`
+```
+
+:: {.callout-note}
+
+## Range
+
+$$
+\text{Range} = x_{(n)} - x_{(1)}
+$$
+
+Calculate the range of `flipper_length_mm`.
+
+```{r}
+penguin_range <- range(penguins$flipper_length_mm, na.rm = TRUE)
+penguin_range
+```
+
+```{r}
+penguin_range_value <- penguin_range[2] - penguin_range[1]
+penguin_range_value
+```
+
+-   **Minimum**: `{r} range(penguins$flipper_length_mm, na.rm = TRUE)[1]`
+
+-   **Maximum**: `{r} range(penguins$flipper_length_mm, na.rm = TRUE)[2]`
+
+-   **Range**: `{r} diff(range(penguins$flipper_length_mm, na.rm = TRUE))`
+
+The range of a dataset is a description of the overall spread of the numbers in the dataset. It is easy to calculate and understand, but it only uses two values. Because of that, outliers can make the data seem more spread out than it truly is.
+
+## Interquartile range  {#sec-iqr}
+
+Use the `IQR()` function to calculate the interquartile range of `flipper_length_mm`.
+
+```{r}
+iqr_value <- IQR(penguins$flipper_length_mm, na.rm = TRUE)
+iqr_value
+```
+
+## Five Number Summary  {#sec-five}
+
+```{r}
+summary(penguins$flipper_length_mm)
+```
 
 # Early Takeaways
