@@ -25,20 +25,26 @@ data(stars)
 colnames(stars)
 ```
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+🎯 Using summarize() and group_by(), create a data table containing the mean values of the "temp" and "magnitude" variables in the "stars" dataset for each type of star.
 
 ```{r}
 #⚡Code 
-
+twinkle_twinkle <- stars %>% 
+  group_by(type) %>% 
+  summarize(
+    mean_temperature = mean(temp),
+    mean_magnitude = mean(magnitude),
+    .groups = "drop"
+  )
 ```
 
 ```{r}
 # ✅  Checks
-
+twinkle_twinkle
 ```
 
 
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+🗣 I am starting to see the utility in the group_by() and summarize() functions, but I don't feel like I've quite got the hang of using them. I think the part that I'm still a little confused about is the .groups = drop and what that does.
 
 # Task 2
 
