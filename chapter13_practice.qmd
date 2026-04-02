@@ -1,0 +1,92 @@
+---
+title: "Chapter 13 Practice"
+author: "Owen Webb"
+date: today
+toc: true
+toc-depth: 2
+format: html
+editor: visual
+---
+
+# Loading Required Packages
+
+```{r}
+#| warning: false
+
+library(dplyr)
+library(dslabs)
+```
+
+# Task 1
+
+```{r}
+data(stars)
+?stars
+colnames(stars)
+```
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅  Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 2
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 3
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 4
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
