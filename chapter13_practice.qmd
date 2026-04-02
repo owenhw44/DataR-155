@@ -96,3 +96,54 @@ twinkle_twinkle
 
 
 🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 5
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 6
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
+
+# Task 7
+
+🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+
+```{r}
+#⚡Code 
+
+```
+
+```{r}
+# ✅ Checks
+
+```
+
+
+🗣/🪞 What I learned / Next step. 1–2 sentences.
