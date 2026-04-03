@@ -48,20 +48,53 @@ twinkle_twinkle
 
 # Task 2
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+```{r}
+# Pre-checks
+?olive
+data(olive)
+colnames(olive)
+```
+
+🎯 I need to find the mean and standard deviation of the percent oleic acid content of olive oils from different regions.
 
 ```{r}
 #⚡Code 
+#fatty_acid <- olive$oleic
+
+Olive_Garden <- olive %>% 
+  group_by(region) %>% 
+  summarize(
+    mean_value = mean(oleic, na.rm = TRUE),
+    sd_value = sd(oleic, na.rm = TRUE),
+    n = n(),
+  )
 
 ```
 
 ```{r}
 # ✅ Checks
+Olive_Garden
 
 ```
 
 
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+🗣 I was struggling with this at first, as the check was returning the same mean and sd for every region. After troubleshooting for a while trying different fatty acids and different functions, I used the Boise State AI tool (Claude Sonnet 4) for help, using the following prompt:
+
+"I am trying to calculate the mean oleic acid content in olive oils grouped by region (from a dslabs dataset in R). I wrote the following code, but I keep getting the same mean and standard deviation for every region.
+
+⚡Code 
+fatty_acid <- olive$oleic
+
+Olive_Garden <- olive %>% 
+  group_by(region) %>% 
+  summarize(
+    mean_value = mean(oleic, na.rm = TRUE),
+    sd_value = sd(oleic, na.rm = TRUE),
+    n = n(),
+  )
+Act as a tutor; guide me to the solution to this problem. "
+
+The LLM led me to realize that the "fatty_acid <- olive$oleic" was creating a vector which was being used to calculate the mean and standard deviation, with no grouping. I fixed it by commenting out that line and then specifying in summary() to use the "oleic" column from the olive dataset. 
 
 # Task 3
 
