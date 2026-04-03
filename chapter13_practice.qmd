@@ -172,34 +172,4 @@ head(Infectious_Burden, 3)
 
 # Task 6
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
-
-```{r}
-#⚡Code 
-
-```
-
-```{r}
-# ✅ Checks
-
-```
-
-
-🗣/🪞 What I learned / Next step. 1–2 sentences.
-
-# Task 7
-
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
-
-```{r}
-#⚡Code 
-
-```
-
-```{r}
-# ✅ Checks
-
-```
-
-
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+The group_by() function has to come before summarize() because the summarize function creates a new data frame that will not contain the variable that you want to group by. If you pipe that data frame into group_by(), R will return an error because the variable that you place in the argument of group_by() will not exist in the new summary data frame. For example, if you summarize an entire dataset before grouping and calculate the mean of a variable, the mean of the entire variable would be calculated (roughly equivalent to typing out mean(variable)). On the other hand, if you group before summarizing, the summary stats would be calculated for each grouping rather than the entire dataset. 
