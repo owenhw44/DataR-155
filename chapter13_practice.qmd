@@ -98,37 +98,54 @@ The LLM led me to realize that the "fatty_acid <- olive$oleic" was creating a ve
 
 # Task 3
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
-
 ```{r}
-#⚡Code 
-
+data("us_contagious_diseases")
+?us_contagious_diseases
 ```
 
 ```{r}
-# ✅ Checks
+unique(us_contagious_diseases$disease)
+length(unique(us_contagious_diseases$disease))
+```
+🗣 There are `r length(unique(us_contagious_diseases$disease))` unique diseases within the `disease` column of the `us_contagious_diseases` dataset. They are `r unique(us_contagious_diseases$disease)"`
 
+🎯 I need to determine the number of states included in the "us_contagious_diseases" dataset.
+```{r}
+# Pre-check
+unique(us_contagious_diseases$state)
+
+length(unique(us_contagious_diseases$state))
 ```
 
-
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+🗣 There are `r length(unique(us_contagious_diseases$state))` unique states within the `state` column of the `us_contagious_diseases` dataset. 
 
 # Task 4
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+## Step 1 - Prediction
+
+If there are 51 states in the dataset, and you assume every state has data for all 7 diseases, how many groups will 'group_by(state, disease)' create?
+
+I think the number of groups create would be: B. \(51 \times 7 = 357\) groups. This makes sense, because for each state, there would need to be 7 disease groups (so 7 groups 51 times).
+
+## Step 2 - Test
+
+🎯 I need to test my prediction to see how many groups will be made by grouping both state and disease with the group_by() function
 
 ```{r}
 #⚡Code 
-
+categorical_counts <- us_contagious_diseases %>%
+  group_by(state, disease) %>%
+  summarize()
 ```
 
 ```{r}
 # ✅ Checks
-
+count(categorical_counts)
+categorical_counts
 ```
 
 
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+🗣 My prediction was correct. There are 7 rows per state, and 51 states, so there are \(51 \times 7 = 357\) groups. 
 
 # Task 5
 
