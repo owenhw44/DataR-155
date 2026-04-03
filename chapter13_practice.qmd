@@ -149,20 +149,26 @@ categorical_counts
 
 # Task 5
 
-🎯 What is the goal of the code? What am I trying to learn, check, or demonstrate?
+🎯 Determine the 3 diseases with the highest national mean counts using group_by() and summarize().
 
 ```{r}
 #⚡Code 
-
+Infectious_Burden <- us_contagious_diseases %>% 
+  group_by(disease) %>% 
+  summarize(
+  mean_count = mean(count, na.rm = TRUE),
+  .groups = "drop"
+  ) %>% 
+  arrange(desc(mean_count))
 ```
 
 ```{r}
 # ✅ Checks
-
+head(Infectious_Burden, 3)
 ```
 
 
-🗣/🪞 What I learned / Next step. 1–2 sentences.
+🗣 The three diseases with the highest mean counts were measles, pertussis, and mumps. 
 
 # Task 6
 
