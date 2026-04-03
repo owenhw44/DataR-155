@@ -107,7 +107,7 @@ data("us_contagious_diseases")
 unique(us_contagious_diseases$disease)
 length(unique(us_contagious_diseases$disease))
 ```
-🗣 There are `r length(unique(us_contagious_diseases$disease))` unique diseases within the `disease` column of the `us_contagious_diseases` dataset. They are `r unique(us_contagious_diseases$disease)"`
+🗣 There are `r length(unique(us_contagious_diseases$disease))` unique diseases within the `disease` column of the `us_contagious_diseases` dataset. They are `r unique(us_contagious_diseases$disease)`
 
 🎯 I need to determine the number of states included in the "us_contagious_diseases" dataset.
 ```{r}
@@ -125,7 +125,7 @@ length(unique(us_contagious_diseases$state))
 
 If there are 51 states in the dataset, and you assume every state has data for all 7 diseases, how many groups will 'group_by(state, disease)' create?
 
-I think the number of groups create would be: B. \(51 \times 7 = 357\) groups. This makes sense, because for each state, there would need to be 7 disease groups (so 7 groups 51 times).
+I think the number of groups create would be: B. 357 groups. This makes sense, because for each state, there would need to be 7 disease groups (so 7 groups 51 times).
 
 ## Step 2 - Test
 
@@ -145,7 +145,7 @@ categorical_counts
 ```
 
 
-🗣 My prediction was correct. There are 7 rows per state, and 51 states, so there are \(51 \times 7 = 357\) groups. 
+🗣 My prediction was correct. There are 7 rows per state, and 51 states, so there are 357 groups. 
 
 # Task 5
 
