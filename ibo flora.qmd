@@ -1,0 +1,33 @@
+---
+title: "IBO flora"
+author: "Owen Webb"
+format: html
+editor: visual
+---
+
+## Packages + Data
+
+```{r}
+#| warning: FALSE
+library(tidyverse)
+library(readr)
+```
+
+```{r}
+inat_obs <- read_csv("~/BSU Documents/DATAR 155/observations-708046.csv/observations-708046.csv")
+View(inat_obs)
+```
+## Taxa list
+```{r}
+species_list <- unique(inat_obs$scientific_name)
+View(species_list)
+```
+```{r}
+by_family <- inat_obs %>% 
+  group_by(scientific_name, taxon_family_name) %>% 
+  summarize()
+
+View(by_family)
+
+```
+
