@@ -1,0 +1,115 @@
+---
+title: "Chapter 15 Practice"
+author: "Owen Webb"
+date: today
+toc: true
+toc-depth: 2
+format: html
+editor: visual
+---
+
+# Task 1
+🎯 I need to simulate 300 rolls of a fair 20 side die.
+
+```{r}
+#⚡Code 
+big_die <- sample(1:20, size = 300 , replace = TRUE, prob = NULL)
+
+any(big_die == 20)
+```
+
+```{r}
+# ✅ Checks
+length(big_die)
+```
+
+🗣 With this large of a sample size, it seems that it would be unlikely to not get any one outcome in the sample space, given that each event is equally likely to occur. 
+
+# Task 2
+
+## Step 1
+🎯 I need to simulate 5221 rolls of a fair 20-side die. 
+
+```{r}
+#⚡Code 
+boring_weekend <- sample(1:20, size = 5221, replace = TRUE, prob = NULL)
+
+# ✅ Checks
+length(boring_weekend)
+```
+🗣 It seems that the simulation worked, and I have the correct sample size. 
+
+## Step 2
+
+🎯 I need to create a frequency table that shows the results of the boring_weekend simulation. 
+
+```{r}
+#⚡Code 
+d20_counts <- table(boring_weekend)
+
+# ✅ Checks
+print(d20_counts)
+```
+🗣 I was stuck on this, so I looked through this page: https://sites.calvin.edu/scofield/courses/m143/materials/RcmdsFromClass.pdf
+
+In it, I found the table() function and what it does, and I was able to quickly figure out how to apply it. 
+
+## Step 3
+
+🎯 I need to calculate the proportion of times that a 20 was rolled using only one line of code and no objects. 
+
+```{r}
+#⚡Code 
+257/5221
+```
+🗣 This proportion appears to be very close to the expected proportion of 0.05.
+
+## Step 4
+
+🎯  I need to simulate the lengths of 100 newborns, with a mean length of 20.0 and a standard deviation of 0.9.
+
+```{r}
+#⚡Code 
+blanketed_babies <- rnorm(100, mean = 20.0, sd = 0.9)
+
+# ✅ Checks
+length(blanketed_babies)
+mean(blanketed_babies)
+sd(blanketed_babies)
+```
+🗣 The above code should have created a dataset of normally distributed values with a mean of 20.0 and sd of 0.9, which, based on my checks, seems to have happened. 
+
+## Step 5
+
+🎯  I need to determine how many babies are over 23 inches long, if there are any.
+
+```{r}
+#⚡Code 
+
+any(blanketed_babies > 23)
+sum(blanketed_babies > 23)
+
+# Check
+max(blanketed_babies)
+```
+🗣 No, it does not appear the hospital needs longer blankets. There are no babies in this simulation that are longer than 23 inches. 
+
+## Step 6
+
+🎯  I need to repeat this simulation but replicate it 1000 times (to represent 1000 weeks), counting the number of babies over 23 inches in each week.
+
+```{r}
+#⚡Code 
+weeks_too_long <- replicate(1000, exp = sum(rnorm(100, mean = 20.0, sd = 0.9) > 23))
+
+# ✅ Checks
+length(weeks_too_long)
+mean(weeks_too_long)
+unique(weeks_too_long)
+
+```
+🗣 It took me a while to figure out how to do this until I realized that I could nest the rnorm function inside the sum function and use a logical test to count the number of occurences over 23 inches. It seems that the code that I wrote worked because there's 1000 values, very few weeks resulted in any babies over 23 inches long. 
+
+# Task 3
+
+Replicate() is used to repeatedly run a function (like sample() or rnorm()). In step 6, it is used to run the sum() function 1000 times, which is counting the number of occurrences in each simulation that is over 23. Without using replicate(), I'm not sure how someone would be able to achieve this in R, other than writing out the code over and over. 
