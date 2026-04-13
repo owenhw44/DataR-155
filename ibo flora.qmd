@@ -30,4 +30,9 @@ by_family <- inat_obs %>%
 View(by_family)
 
 ```
+## Export
+```{r}
+#install.packages("writexl")
+write.csv(by_family, file = "by_family.csv", row.names = FALSE)
+```
 
