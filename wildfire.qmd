@@ -8,8 +8,6 @@ format: html
 editor: visual
 ---
 
-# Part 1
-
 ## Part A: Data Wrangling
 
 Load packages
@@ -101,4 +99,32 @@ glimpse(county_cats)
 
 🗣 I initially tried formatting my case_when arguments as `x <= whp < y`, but that didn't work, so I changed my formatting to use the & operator instead and that worked. 
 
-It seems as though, luckily, the majority of Idaho's land is at Very Low to Moderate fire risk, but there's still a troubling amount (~25%) that is at High to Ultra fire risk. 
+It seems as though the majority of Idaho's land is at Very Low to Moderate fire risk, but there's still a troubling number of cells that are at High to Ultra fire risk. 
+
+###  Task 5
+
+🎯 I need to create a summary table that has 4 variables: Category, area_km2 (sum of the areas of all the cells), n_cells (number of grid cells), and Probability (area_km2 divided by sum of area_km2)
+
+```{r}
+#⚡ Code:
+prob_tbl <- county_cats %>% 
+  group_by(Category) %>% 
+  summarize(
+    area_km2 = sum(cell_area_km2),
+    n_cells  = n(),
+    .groups = "drop") %>% 
+  mutate(
+    Probability = area_km2/sum(area_km2)) %>% 
+  select(Category, area_km2, n_cells, Probability)
+
+
+```
+
+```{r}
+# ✅  Check
+print(prob_tbl)
+sum(prob_tbl$Probability)
+```
+
+🗣 It appears that approximately 25% of Idaho's land is at at least High risk of wildfire. The probability represents the chance of randomly selecting a cell that is in a given category. 
+
