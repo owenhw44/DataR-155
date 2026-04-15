@@ -1,0 +1,90 @@
+---
+title: "Wildfire Signature Assignment"
+author: "Owen Webb"
+date: today
+toc: true
+toc-depth: 3
+format: html
+editor: visual
+---
+
+# Part 1
+
+## Part A: Data Wrangling
+
+Load packages
+```{r}
+#| warning: FALSE
+library(readr)
+library(tidyverse)
+```
+
+### Task 1
+
+🎯 I need to import the whp_raw_sample.csv into into the workspace.
+
+```{r}
+#⚡ Code:
+county_raw <- read_csv("whp_raw_sample.csv")
+```
+```{r}
+# ✅  Explore Data
+head(county_raw)
+colnames(county_raw)
+```
+
+🗣 The `county_raw` dataset is made up of individual raster cells making up the map of Idaho, each cell with its own wildfire risk value (whp). The whp column seems to be a key variable for this analysis. 
+
+### Task 2 
+
+🎯 I need to use summarize() with county_raw to determine the number of rows in the dataset, number of missing whp values, and the min and max values in the cell_area_km2 column.
+
+```{r}
+#⚡ Code:
+county_summary <- county_raw %>% 
+  summarize(
+    missing_whp = sum(is.na(whp) == TRUE),
+    min_area = min(cell_area_km2),
+    max_area = max(cell_area_km2),
+    rows = n()
+  )
+```
+
+```{r}
+# ✅  Check
+print(county_summary)
+```
+
+🗣 These numbers show that this dataset is very high quality. It appears there are no missing whp values, theres a very large sample size, and the areas of the cells don't seem to vary much at all.
+
+### Task 3
+
+🎯 
+
+```{r}
+#⚡ Code:
+
+```
+
+```{r}
+# ✅  Check
+
+```
+
+🗣 
+
+### Task 4
+
+🎯 
+
+```{r}
+#⚡ Code:
+
+```
+
+```{r}
+# ✅  Check
+
+```
+
+🗣 
