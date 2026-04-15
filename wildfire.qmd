@@ -59,32 +59,46 @@ print(county_summary)
 
 ### Task 3
 
-🎯 
+🎯 I need to use quantile() to compute the quantiles of the whp column
 
 ```{r}
 #⚡ Code:
+e <- quantile(county_raw$whp, probs = c(0, 0.25, 0.5, 0.75, 0.9, 0.95, 0.99, 1), na.rm = TRUE)
 
 ```
 
 ```{r}
 # ✅  Check
-
+print(e)
 ```
 
-🗣 
+🗣 Object e represents the different percentiles of the whp variable. This is helpful because it gives me a rough idea of the distribution of the values, and what values are more extreme or more central.
 
 ### Task 4
 
-🎯 
+🎯 I need to categorize rows in the county_raw dataset by their relative wildfire risk.
 
 ```{r}
 #⚡ Code:
-
+county_cats <- county_raw %>% 
+  mutate(Category = case_when(
+    whp >= 0 & whp < 130.7305 ~ "Very Low",
+    whp >= 130.7305 & whp < 397.6562 ~ "Low",
+    whp >= 397.6562 & whp < 1101.0156 ~ "Moderate",
+    whp >= 1101.0156 & whp < 3479.8125 ~ "High",
+    whp >= 3479.8125 & whp < 7708.5383 ~ "Very High",
+    whp >= 7708.5383 & whp < 22046.7472 ~ "Extreme",
+    whp >= 22046.7472 & whp <= 63465.4219 ~ "Ultra (Top 1%)"
+  ))
+county_cats$Category <- factor(county_cats$Category, levels = c("Very Low", "Low", "Moderate", "High", "Very High", "Extreme", "Ultra (Top 1%)"), ordered = TRUE)
 ```
 
 ```{r}
 # ✅  Check
-
+county_cats %>% group_by(Category) %>% count()
+glimpse(county_cats)
 ```
 
-🗣 
+🗣 I initially tried formatting my case_when arguments as `x <= whp < y`, but that didn't work, so I changed my formatting to use the & operator instead and that worked. 
+
+It seems as though, luckily, the majority of Idaho's land is at Very Low to Moderate fire risk, but there's still a troubling amount (~25%) that is at High to Ultra fire risk. 
