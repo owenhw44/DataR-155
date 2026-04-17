@@ -24,48 +24,56 @@ Three steps to ggplot:
   
 # Task 2
 
-🎯 
+🎯 I need to make a scatterplot for the `iris` dataset, assigning sepal length to the x-axis and petal length to the y-axis. The points should be colored by species. 
 
 ```{r}
 # ⚡ Code
-
+Pretty_Flowers <- iris %>% 
+  ggplot(aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
+  geom_point(size = 3) +
+  xlab("Sepal Length (cm)") +
+  ylab("Petal Length (cm)")
 ```
 
-
-✅ What checks can I do to confirm that the code worked as expected?
 
 ```{r}
 # ✅ Checks
-
+class(Pretty_Flowers)
+Pretty_Flowers
 ```
 
-🗣 
+🗣 It appears that there is overlap in sepal length between all 3 species, but the petal lengths are more distinct between the 3 species. *Iris setosa* has much shorter petals than the other two species, while the lengths of both sepals and petals overlap between *I. versicolor* and *I. virginica*.
 
 # Task 3
 
-🎯 
+🎯 I need to create a boxplot comparing the spreads of petal lengths between the 3 *Iris* species. 
 
 ```{r}
 # ⚡ Code
-
+Petal_Spread <- iris %>% 
+  ggplot(aes(x = Species, y = Petal.Length, color = Species)) +
+  geom_boxplot(show.legend = FALSE)
 ```
 
-
-✅ What checks can I do to confirm that the code worked as expected?
 
 ```{r}
 # ✅ Checks
-
+class(Petal_Spread)
+Petal_Spread
 ```
 
-🗣 
+🗣 It appears that *Iris virginica* has the greatest spread in petal lengths. Graphing the dataset as a boxplot allows me to see the spread of the values by species easier, as well as the central values and outliers for each species. 
+
 # Task 4
 
-🎯 
+🎯 I need to create a density plot comparing the distributions of CO2 intake by plant type, making the fill partially transparent, and I need to add a title to my graph. 
 
 ```{r}
 # ⚡ Code
-
+CO2_Graph <- CO2 %>% 
+  ggplot(aes(x = uptake, fill = Type)) +
+  geom_density(alpha = 0.5) +
+  ggtitle("CO2 Uptake By Plant Type")
 ```
 
 
@@ -73,26 +81,39 @@ Three steps to ggplot:
 
 ```{r}
 # ✅ Checks
-
+class(CO2_Graph)
+CO2_Graph
 ```
 
-🗣 
+🗣 The overlap in distributions between the two plant types suggests that the two plant types might not significantly differ in their CO2 uptake. 
 
 # Task 5
 
-🎯 
+🎯 I need to create a graph with two layers: a histogram showing distributions of heights, and then a (partially transparent) density curve of heights layered over the histogram. I need the histogram bars to be blue and density curve to be orange.  
 
 ```{r}
 # ⚡ Code
-
+Tall_Density <- heights %>% 
+  ggplot(aes(x = height)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 size = 1,
+                 fill = "blue",
+                 color = "white") +
+ geom_density(color = "darkorange",
+            fill = "darkorange",
+            alpha = 0.3,
+            size = 1) +
+  xlab("Height (inches)") +
+  ylab("Density")
 ```
 
-
-✅ What checks can I do to confirm that the code worked as expected?
 
 ```{r}
 # ✅ Checks
-
+class(Tall_Density)
+Tall_Density
 ```
 
-🗣 
+🗣 The density curve provides a better visualization of the overall shape of the distribution. It does make it easier to recognize the distribution as normal (maybe with a very slight left skew).
+
+# Task 6
