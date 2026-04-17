@@ -1,0 +1,98 @@
+---
+title: "Chapter 16 Practice"
+author: "Owen Webb"
+toc: true
+toc-depth: 2
+format: html
+editor: visual
+---
+
+## Loading packages
+```{r}
+#| warning: FALSE
+library(dplyr)
+library(dslabs)
+library(ggplot2)
+```
+
+# Task 1
+
+Three steps to ggplot:
+  1. Assigning a dataframe: This just tells ggplot() which dataset to use for the graph/figure.
+  2. Mapping aesthetics: This step assigns variables to the x and y axes of the graph.
+  3. Adding geometric objects: In this step, you tell R how you want your data to be visualized, like as a scatterplot, histogram, bar graph, etc. During this step you can also do more aesthetic mapping, which will just apply to the specific geometric object added.
+  
+# Task 2
+
+🎯 
+
+```{r}
+# ⚡ Code
+
+```
+
+
+✅ What checks can I do to confirm that the code worked as expected?
+
+```{r}
+# ✅ Checks
+
+```
+
+🗣 
+
+# Task 3
+
+🎯 
+
+```{r}
+# ⚡ Code
+
+```
+
+
+✅ What checks can I do to confirm that the code worked as expected?
+
+```{r}
+# ✅ Checks
+
+```
+
+🗣 
+# Task 4
+
+🎯 
+
+```{r}
+# ⚡ Code
+
+```
+
+
+✅ What checks can I do to confirm that the code worked as expected?
+
+```{r}
+# ✅ Checks
+
+```
+
+🗣 
+
+# Task 5
+
+🎯 
+
+```{r}
+# ⚡ Code
+
+```
+
+
+✅ What checks can I do to confirm that the code worked as expected?
+
+```{r}
+# ✅ Checks
+
+```
+
+🗣 
