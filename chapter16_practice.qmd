@@ -114,6 +114,8 @@ class(Tall_Density)
 Tall_Density
 ```
 
-🗣 The density curve provides a better visualization of the overall shape of the distribution. It does make it easier to recognize the distribution as normal (maybe with a very slight left skew).
+🗣 The density curve provides a better visualization of the overall shape of the distribution. It does make it easier to recognize the distribution as normal.
 
 # Task 6
+
+In a histogram, there can sometimes be irregularities, like with the large spike near the center of the distribution in the `Tall_Density` graph. These irregularities can sometimes make it harder to distinguish a symmetrical, normal distribution from a skewed distribution. Including a density curve smooths over the irregularities, allowing you to better see the overall shape of the distribution. Using a density curve in these situations might be more helpful. Additionally, when considering probabilities of certain sampling outcomes, a density curve would be more useful than a histogram. 
