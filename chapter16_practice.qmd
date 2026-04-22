@@ -8,6 +8,7 @@ editor: visual
 ---
 
 ## Loading packages
+
 ```{r}
 #| warning: FALSE
 library(dplyr)
@@ -17,14 +18,11 @@ library(ggplot2)
 
 # Task 1
 
-Three steps to ggplot:
-  1. Assigning a dataframe: This just tells ggplot() which dataset to use for the graph/figure.
-  2. Mapping aesthetics: This step assigns variables to the x and y axes of the graph.
-  3. Adding geometric objects: In this step, you tell R how you want your data to be visualized, like as a scatterplot, histogram, bar graph, etc. During this step you can also do more aesthetic mapping, which will just apply to the specific geometric object added.
-  
+Three steps to ggplot: 1. Assigning a dataframe: This just tells ggplot() which dataset to use for the graph/figure. 2. Mapping aesthetics: This step assigns variables to the x and y axes of the graph. 3. Adding geometric objects: In this step, you tell R how you want your data to be visualized, like as a scatterplot, histogram, bar graph, etc. During this step you can also do more aesthetic mapping, which will just apply to the specific geometric object added.
+
 # Task 2
 
-🎯 I need to make a scatterplot for the `iris` dataset, assigning sepal length to the x-axis and petal length to the y-axis. The points should be colored by species. 
+🎯 I need to make a scatterplot for the `iris` dataset, assigning sepal length to the x-axis and petal length to the y-axis. The points should be colored by species.
 
 ```{r}
 # ⚡ Code
@@ -34,7 +32,6 @@ Pretty_Flowers <- iris %>%
   xlab("Sepal Length (cm)") +
   ylab("Petal Length (cm)")
 ```
-
 
 ```{r}
 # ✅ Checks
@@ -46,15 +43,14 @@ Pretty_Flowers
 
 # Task 3
 
-🎯 I need to create a boxplot comparing the spreads of petal lengths between the 3 *Iris* species. 
+🎯 I need to create a boxplot comparing the spreads of petal widths between the 3 *Iris* species.
 
 ```{r}
 # ⚡ Code
 Petal_Spread <- iris %>% 
-  ggplot(aes(x = Species, y = Petal.Length, color = Species)) +
+  ggplot(aes(x = Species, y = Petal.Width, fill = Species)) +
   geom_boxplot(show.legend = FALSE)
 ```
-
 
 ```{r}
 # ✅ Checks
@@ -62,11 +58,11 @@ class(Petal_Spread)
 Petal_Spread
 ```
 
-🗣 It appears that *Iris virginica* has the greatest spread in petal lengths. Graphing the dataset as a boxplot allows me to see the spread of the values by species easier, as well as the central values and outliers for each species. 
+🗣 It appears that *Iris virginica* has the greatest spread in petal lengths. Graphing the dataset as a boxplot allows me to see the spread of the values by species easier, as well as the central values and outliers for each species.
 
 # Task 4
 
-🎯 I need to create a density plot comparing the distributions of CO2 intake by plant type, making the fill partially transparent, and I need to add a title to my graph. 
+🎯 I need to create a density plot comparing the distributions of CO2 intake by plant type, making the fill partially transparent, and I need to add a title to my graph.
 
 ```{r}
 # ⚡ Code
@@ -76,7 +72,6 @@ CO2_Graph <- CO2 %>%
   ggtitle("CO2 Uptake By Plant Type")
 ```
 
-
 ✅ What checks can I do to confirm that the code worked as expected?
 
 ```{r}
@@ -85,11 +80,11 @@ class(CO2_Graph)
 CO2_Graph
 ```
 
-🗣 The overlap in distributions between the two plant types suggests that the two plant types might not significantly differ in their CO2 uptake. 
+🗣 The overlap in distributions between the two plant types suggests that the two plant types might not significantly differ in their CO2 uptake.
 
 # Task 5
 
-🎯 I need to create a graph with two layers: a histogram showing distributions of heights, and then a (partially transparent) density curve of heights layered over the histogram. I need the histogram bars to be blue and density curve to be orange.  
+🎯 I need to create a graph with two layers: a histogram showing distributions of heights, and then a (partially transparent) density curve of heights layered over the histogram. I need the histogram bars to be blue and density curve to be orange.
 
 ```{r}
 # ⚡ Code
@@ -107,7 +102,6 @@ Tall_Density <- heights %>%
   ylab("Density")
 ```
 
-
 ```{r}
 # ✅ Checks
 class(Tall_Density)
@@ -118,4 +112,4 @@ Tall_Density
 
 # Task 6
 
-In a histogram, there can sometimes be irregularities, like with the large spike near the center of the distribution in the `Tall_Density` graph. These irregularities can sometimes make it harder to distinguish a symmetrical, normal distribution from a skewed distribution. Including a density curve smooths over the irregularities, allowing you to better see the overall shape of the distribution. Using a density curve in these situations might be more helpful. Additionally, when considering probabilities of certain sampling outcomes, a density curve would be more useful than a histogram. 
+In a histogram, there can sometimes be irregularities, like with the large spike near the center of the distribution in the `Tall_Density` graph. These irregularities can sometimes make it harder to distinguish a symmetrical, normal distribution from a skewed distribution. Including a density curve smooths over the irregularities, allowing you to better see the overall shape of the distribution. Using a density curve in these situations might be more helpful. Additionally, when considering probabilities of certain sampling outcomes, a density curve would be more useful than a histogram.
