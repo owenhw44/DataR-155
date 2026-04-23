@@ -128,3 +128,100 @@ sum(prob_tbl$Probability)
 
 🗣 It appears that approximately 25% of Idaho's land is at at least High risk of wildfire. The probability represents the chance of randomly selecting a cell that is in a given category. 
 
+## Part B: Probability Modeling
+
+### Task 1
+
+🎯 Using a lognormal distribution, I need to calculate the probability that a fire will spread 10 or more kilometers after 8 hours in a "High" risk zone.
+
+```{r}
+#⚡ Code:
+p_high_exact <- plnorm(10, meanlog = 1.907, sdlog = 0.280, lower.tail = FALSE)
+```
+```{r}
+# ✅  Check
+print(p_high_exact)
+p_high_exact*100
+```
+
+🗣 Using a lognormal model, it appears that a fire has a 7.886% chance of burning 10 km or more after 8 hours. 
+
+### Task 2
+
+🎯 Using qlnorm(), I need to determine the 8-hour run distance that only the top 5% of fires exceed. 
+
+```{r}
+#⚡ Code:
+q95_high <- qlnorm(0.95, meanlog = 1.907, sdlog = 0.280)
+```
+```{r}
+# ✅  Check
+print(q95_high)
+```
+
+🗣 95% of fires in High risk zones burn less than 10.67131 km in an 8 hour run. 
+
+### Task 3
+
+🎯 Using the High Risk lognormal model, I need to compare the likelihood of a fire burning 3 km vs 10 km after 8 hours.
+
+```{r}
+#⚡ Code:
+d_3 <- dlnorm(3, meanlog = 1.907, sdlog = 0.280)
+d_10 <- dlnorm(10, meanlog = 1.907, sdlog = 0.280)
+```
+```{r}
+# ✅  Check
+print(d_3)
+print(d_10)
+```
+
+🗣 Based on the densities at each point (3km and 10km), it seems that a 10 km distance is more locally likely as the distribution has a higher density at X = 10 km.
+
+### Task 4
+
+#### Task 4.1
+
+🎯 
+
+```{r}
+#⚡ Code:
+set.seed(2025)
+
+```
+```{r}
+# ✅  Check
+
+```
+
+🗣 
+
+#### Task 4.2
+
+🎯 
+
+```{r}
+#⚡ Code:
+
+```
+```{r}
+# ✅  Check
+
+```
+
+🗣 
+
+#### Task 4.3
+
+🎯 
+
+```{r}
+#⚡ Code:
+
+```
+```{r}
+# ✅  Check
+
+```
+
+🗣 
