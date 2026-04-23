@@ -370,8 +370,8 @@ $ Category      &lt;ord&gt; High, Very Low, Low, Low, Moderate, Low, Very Low, H
 </section>
 <section id="task-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="task-4-1">Task 4</h3>
-<section id="task-4.1" class="level4">
-<h4 class="anchored" data-anchor-id="task-4.1">Task 4.1</h4>
+<section id="sec-task4.1b" class="level4">
+<h4 class="anchored" data-anchor-id="sec-task4.1b">Task 4.1</h4>
 <p>🎯 I need to simulate 450 8-hour fire distances in the High risk category.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#⚡ Code:</span></span>
@@ -396,23 +396,38 @@ $ Category      &lt;ord&gt; High, Very Low, Low, Low, Moderate, Low, Very Low, H
 <h4 class="anchored" data-anchor-id="task-4.2">Task 4.2</h4>
 <p>🎯 I need to count the number of “fast-growing” fires (with “fast-growing” being defined by having an 8-hour distance greater than or equal to 10 km), then compare them to the probability calculated in <a href="#sec-task1b">Task 1</a>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#⚡ Code:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#⚡ Code:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>fast_growing_count <span class="ot">&lt;-</span> <span class="fu">sum</span>(High_Lognorm <span class="sc">&gt;=</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅  Check</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅  Check</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fast_growing_count)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
 </div>
-<p>🗣</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fast_growing_count<span class="sc">/</span><span class="fu">length</span>(High_Lognorm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06666667</code></pre>
+</div>
+</div>
+<p>🗣 If, in a fire season, there are approximately 450 fires in high risk areas, this simulated count suggests that we should see ~30 fast-growing fires. The proportion, which is slightly less than the probability calculated in <a href="#sec-task1b">Task 1</a>, suggests that approximately 6.67% of fires in high risk areas will be fast-growing.</p>
 </section>
 <section id="task-4.3" class="level4">
 <h4 class="anchored" data-anchor-id="task-4.3">Task 4.3</h4>
-<p>🎯</p>
+<p>🎯 I need to create a histogram of <code>High_Lognorm</code>to visualize the distribution of simulated 8 hour burn distances.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#⚡ Code:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#⚡ Code:</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>High_Lognorm_Hist <span class="ot">&lt;-</span> High_Lognorm <span class="sc">%&gt;%</span> </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">freq =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">main =</span> <span class="st">"High-Risk 8-Hour Burn Distances"</span>, <span class="at">xlab =</span> <span class="st">"8-Hour Burn Distance (km)"</span>, <span class="at">axes =</span> <span class="cn">TRUE</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="wildfire_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅  Check</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>🗣</p>
+</div>
+<p>🗣 Based on the summary of the simulation(<a href="#sec-task4.1b">Task 4.1</a>), I thought that, because the mean and median were close to one another and they were relatively close to the middle of the dataset, I had enough information to conclude that the distribution was normal. The distribution, however, was not normal like I thought it was. It appears to be right-skewed, which, after reading more about lognormal models, is to be expected, since it is actually the logarithm of the values that is normally distributed, not the values themselves.</p>
 </section>
 </section>
 </section>
