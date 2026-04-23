@@ -130,7 +130,7 @@ sum(prob_tbl$Probability)
 
 ## Part B: Probability Modeling
 
-### Task 1
+### Task 1 {#sec-task1b}
 
 🎯 Using a lognormal distribution, I need to calculate the probability that a fire will spread 10 or more kilometers after 8 hours in a "High" risk zone.
 
@@ -199,18 +199,19 @@ length(High_Lognorm)
 
 #### Task 4.2
 
-🎯 
+🎯 I need to count the number of "fast-growing" fires (with "fast-growing" being defined by having an 8-hour distance greater than or equal to 10 km), then compare them to the probability calculated in [Task 1](#sec-task1b).
 
 ```{r}
 #⚡ Code:
-
+fast_growing_count <- sum(High_Lognorm >= 10)
 ```
 ```{r}
 # ✅  Check
-
+print(fast_growing_count)
+fast_growing_count/length(High_Lognorm)
 ```
 
-🗣 
+🗣 If, in a fire season, there are approximately 450 fires in high risk areas, this simulated count suggests that we should see ~30 fast-growing fires. The proportion, which is slightly less than the probability calculated in [Task 1](#sec-task1b), suggests that approximately 6.67% of fires in high risk areas will be fast-growing. 
 
 #### Task 4.3
 
