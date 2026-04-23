@@ -180,7 +180,7 @@ print(d_10)
 
 ### Task 4
 
-#### Task 4.1
+#### Task 4.1 {#sec-task4.1b}
 
 🎯 I need to simulate 450 8-hour fire distances in the High risk category.
 
@@ -215,15 +215,13 @@ fast_growing_count/length(High_Lognorm)
 
 #### Task 4.3
 
-🎯 
+🎯 I need to create a histogram of `High_Lognorm`to visualize the distribution of simulated 8 hour burn distances. 
 
 ```{r}
 #⚡ Code:
-
-```
-```{r}
-# ✅  Check
-
+High_Lognorm_Hist <- High_Lognorm %>% 
+  hist(breaks = 30, freq = TRUE, col = "lightblue", main = "High-Risk 8-Hour Burn Distances", xlab = "8-Hour Burn Distance (km)", axes = TRUE, plot = TRUE)
+High_Lognorm_Hist
 ```
 
-🗣 
+🗣 Based on the summary of the simulation([Task 4.1](#sec-task4.1b)), I thought that, because the mean and median were close to one another and they were relatively close to the middle of the dataset, I had enough information to conclude that the distribution was normal. The distribution, however, was not normal like I thought it was. It appears to be right-skewed, which, after reading more about lognormal models, is to be expected, since it is actually the logarithm of the values that is normally distributed, not the values themselves. 
