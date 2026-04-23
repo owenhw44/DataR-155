@@ -182,19 +182,20 @@ print(d_10)
 
 #### Task 4.1
 
-🎯 
+🎯 I need to simulate 450 8-hour fire distances in the High risk category.
 
 ```{r}
 #⚡ Code:
 set.seed(2025)
-
+High_Lognorm <- rlnorm(450, meanlog = 1.907, sdlog = .280)
 ```
 ```{r}
 # ✅  Check
-
+summary(High_Lognorm)
+length(High_Lognorm)
 ```
 
-🗣 
+🗣 The range of values in `High_Lognorm` is approximately 12 km, and the mean is 6.987, close to the mean in the 8-hour distance table provided in the instructions. Based solely on the summary, it seems that the distribution isn't skewed much, as the mean and median are close, and they sit in the approximate middle of the min and max values. 
 
 #### Task 4.2
 
